@@ -14,5 +14,7 @@ This repository contains examples of **One-to-Few** and **One-to-Many relationsh
 ## 📂 Folder Structure
 
 /PracticeMongo/
-│── MongoOneToFew/      # Example of one-to-few relationships (embedding)
-│── MongoOneToMany/     # Example of one-to-many relationships (referencing)
+│── MongoOneToFew/          # Example of one-to-few relationships (embedding)
+│── MongoOneToMany/         # Example of one-to-many relationships (referencing)
+│── MongoOneToBajillion/    # Example of handling massive one-to-many relationships
+

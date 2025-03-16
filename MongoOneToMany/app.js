@@ -24,8 +24,8 @@ const farmSchema=new Schema({
     ]
 })
 
-const Product=mongoose.model('product',productSchema)
-const Farm=mongoose.model('farm',farmSchema)
+const Product=mongoose.model('Product',productSchema)
+const Farm=mongoose.model('Farm',farmSchema)
 
 Product.insertMany([
     {name:'mango',price:2.99,season:'summer'},
@@ -34,20 +34,23 @@ Product.insertMany([
 ])
 
 const makeFarm=async ()=>{
-    const farm=new Farm({name:'afk farms',city:'maldah'})
-    const mango=await Product.findOne({name:"mango"})
+    const farm=new Farm({name:'ss farms',city:'kolkATA'})
+    const mango=await Product.findOne({name:"banana"})
     farm.products.push(mango)
     await farm.save()
     console.log(Farm)
 }
-makeFarm()
-// const addFarm=async ()=>{
-//     const farm=new Farm({name:'noob farms',city:'bombay'})
-//     const mango=await Product.findOne({name:"lol"})
-//     farm.products.push(mango)
-//     await farm.save()
-//     console.log(Farm)
-// }
-// addFarm()
+const addFarm=async ()=>{
+    const farm=await Farm.findOne({name:'afk farms'})
+    const mango=await Product.findOne({name:"lol"})
+    farm.products.push(mango)
+    await farm.save()
+    console.log(Farm)
+}
+addFarm()
+
+Farm.findOne({name: 'afk farms'})
+    .populate('products')
+    .then(farm=>console.log(farm))
 
 
